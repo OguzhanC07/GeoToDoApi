@@ -13,5 +13,8 @@ namespace GeoToDo.Entities.Concrete
 
         public int AppUserId { get; set; }
         public AppUser AppUser { get; set; }
+
+        public List<CategoryActivity> CategoryActivities { get; set; }
+
     }
 }
