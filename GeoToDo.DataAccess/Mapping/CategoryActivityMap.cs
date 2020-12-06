@@ -9,14 +9,12 @@ using System.Threading.Tasks;
 
 namespace GeoToDo.DataAccess.Mapping
 {
-    public class CategoryActivityMap : IEntityTypeConfiguration<CategoryActivity>
+    class CategoryActivityMap : IEntityTypeConfiguration<CategoryActivity>
     {
         public void Configure(EntityTypeBuilder<CategoryActivity> builder)
         {
             builder.HasKey(I => I.Id);
             builder.Property(I => I.Id).UseIdentityColumn();
-
-            builder.HasIndex(I => new { I.ActivityId, I.CategoryId }).IsUnique();
         }
     }
 }

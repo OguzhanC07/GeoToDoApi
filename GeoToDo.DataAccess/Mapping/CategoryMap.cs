@@ -19,8 +19,7 @@ namespace GeoToDo.DataAccess.Mapping
             builder.Property(I => I.Name).HasMaxLength(100).IsRequired();
 
             builder.HasOne(I => I.AppUser).WithMany(I => I.Categories).HasForeignKey(I => I.AppUserId);
-            builder.HasMany(I => I.CategoryActivities).WithOne(I => I.Category).HasForeignKey(I => I.CategoryId);
-            
+            builder.HasMany(I => I.CategoryActivities).WithOne(I => I.Category).HasForeignKey(I => I.CategoryId).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

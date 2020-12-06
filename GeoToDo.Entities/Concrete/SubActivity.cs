@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeoToDo.Entities.Concrete
 {
-    public class Activity
+    public class SubActivity
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -18,10 +18,7 @@ namespace GeoToDo.Entities.Concrete
         public bool IsVisible { get; set; }
 
 
-        public int AppUserId { get; set; }
-        public AppUser AppUser { get; set; }
-
-        public List<SubActivity> SubActivities { get; set; }
-        public List<CategoryActivity> CategoryActivities { get; set; }
+        public int ActivtyId { get; set; }
+        public Activity Activity { get; set; }
     }
 }

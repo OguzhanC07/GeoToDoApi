@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace GeoToDo.DataAccess.Mapping
 {
-    public class ActivityMap : IEntityTypeConfiguration<Activity>
+    class SubActivityMap : IEntityTypeConfiguration<SubActivity>
     {
-        public void Configure(EntityTypeBuilder<Activity> builder)
+        public void Configure(EntityTypeBuilder<SubActivity> builder)
         {
             builder.HasKey(I => I.Id);
             builder.Property(I => I.Id).UseIdentityColumn();
@@ -20,10 +20,6 @@ namespace GeoToDo.DataAccess.Mapping
             builder.Property(I => I.Description).HasMaxLength(500);
             builder.Property(I => I.SelectedTime).IsRequired();
             builder.Property(I => I.ImagePaths).HasMaxLength(500);
-
-            builder.HasOne(I => I.AppUser).WithMany(I => I.Activities).HasForeignKey(I => I.AppUserId);
-            builder.HasMany(I => I.SubActivities).WithOne(I => I.Activity).HasForeignKey(I => I.ActivtyId);
-            builder.HasMany(I => I.CategoryActivities).WithOne(I => I.Activity).HasForeignKey(I => I.ActivityId).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

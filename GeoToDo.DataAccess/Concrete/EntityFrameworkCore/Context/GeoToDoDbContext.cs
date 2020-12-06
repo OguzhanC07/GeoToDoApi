@@ -1,4 +1,5 @@
-﻿using GeoToDo.Entities.Concrete;
+﻿using GeoToDo.DataAccess.Mapping;
+using GeoToDo.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,14 @@ namespace GeoToDo.DataAccess.Concrete.EntityFrameworkCore.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new ActivityMap());
+            modelBuilder.ApplyConfiguration(new AppRoleMap());
+            modelBuilder.ApplyConfiguration(new AppUserMap());
+            modelBuilder.ApplyConfiguration(new AppUserRoleMap());
+            modelBuilder.ApplyConfiguration(new CategoryMap());
+            modelBuilder.ApplyConfiguration(new CategoryActivityMap());
+            modelBuilder.ApplyConfiguration(new SubActivityMap());
+            modelBuilder.ApplyConfiguration(new TargetMap());
         }
 
         public DbSet<Activity> Activities { get; set; }
@@ -26,6 +34,7 @@ namespace GeoToDo.DataAccess.Concrete.EntityFrameworkCore.Context
         public DbSet<AppUserRole> AppUserRoles { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<CategoryActivity> CategoryActivities { get; set; }
+        public DbSet<SubActivity> SubActivities { get; set; }
         public DbSet<Target> Targets { get; set; }
     }
 }
