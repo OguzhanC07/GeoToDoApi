@@ -19,7 +19,6 @@ namespace GeoToDo.DataAccess.Mapping
             builder.Property(I => I.Name).HasMaxLength(100).IsRequired();
             builder.Property(I => I.Description).HasMaxLength(500);
             builder.Property(I => I.SelectedTime).IsRequired();
-            builder.Property(I => I.ImagePaths).HasMaxLength(500);
 
             builder.HasOne(I => I.AppUser).WithMany(I => I.Activities).HasForeignKey(I => I.AppUserId);
             builder.HasMany(I => I.SubActivities).WithOne(I => I.Activity).HasForeignKey(I => I.ActivtyId);

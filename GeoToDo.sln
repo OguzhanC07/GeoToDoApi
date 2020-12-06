@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoToDo.DataAccess", "GeoTo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoToDo.Business", "GeoToDo.Business\GeoToDo.Business.csproj", "{A7D29B43-B0E6-4746-806A-B0ABF23D23D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoToDo.WebApi", "GeoToDo.WebApi\GeoToDo.WebApi.csproj", "{9789B5A1-7C28-4486-A434-C4F99D87C975}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A7D29B43-B0E6-4746-806A-B0ABF23D23D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7D29B43-B0E6-4746-806A-B0ABF23D23D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7D29B43-B0E6-4746-806A-B0ABF23D23D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9789B5A1-7C28-4486-A434-C4F99D87C975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9789B5A1-7C28-4486-A434-C4F99D87C975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9789B5A1-7C28-4486-A434-C4F99D87C975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9789B5A1-7C28-4486-A434-C4F99D87C975}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
