@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace GeoToDo.Business.Interfaces
 {
-    public interface IAppRoleService : IGenericService<AppRole>
+    public interface IAppUserRoleService : IGenericService<AppUserRole>
     {
-        Task<AppRole> FindByNameAsync(string role);
     }
 }

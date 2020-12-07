@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GeoToDo.DataAccess\GeoToDo.DataAccess.csproj" />
+    <ProjectReference Include="..\GeoToDo.DTO\GeoToDo.DTO.csproj" />
   </ItemGroup>
 
 </Project>

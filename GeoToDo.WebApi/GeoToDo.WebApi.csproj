@@ -15,8 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\activity\" />
-    <Folder Include="wwwroot\profile\" />
+    <Folder Include="wwwroot\images\activity\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\images\profile\" />
   </ItemGroup>
 
 </Project>

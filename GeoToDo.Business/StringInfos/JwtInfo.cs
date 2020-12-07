@@ -12,8 +12,5 @@ namespace GeoToDo.Business.StringInfos
         public const string Audience = "http://localhost";
         public const string SecurityKey = "oguzhanoguzhan11";
         public const int TokenExpiration = 30;
-
-
-
     }
 }

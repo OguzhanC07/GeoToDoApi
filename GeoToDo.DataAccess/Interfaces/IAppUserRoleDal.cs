@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeoToDo.Business.Interfaces
+namespace GeoToDo.DataAccess.Interfaces
 {
-    public interface IAppRoleService : IGenericService<AppRole>
+    public interface IAppUserRoleDal : IGenericDal<AppUserRole>
     {
-        Task<AppRole> FindByNameAsync(string role);
+
     }
 }
