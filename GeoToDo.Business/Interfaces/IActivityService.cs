@@ -9,5 +9,6 @@ namespace GeoToDo.Business.Interfaces
 {
     public interface IActivityService : IGenericService<Activity>
     {
+        Task<List<Activity>> GetActivitiesByAppUserIdAsync(int appuserid);
     }
 }

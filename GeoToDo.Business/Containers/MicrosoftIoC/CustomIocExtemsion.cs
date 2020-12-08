@@ -1,7 +1,11 @@
-﻿using GeoToDo.Business.Concrete;
+﻿using FluentValidation;
+using GeoToDo.Business.Concrete;
 using GeoToDo.Business.Interfaces;
+using GeoToDo.Business.ValidationRules.FluentValidation;
 using GeoToDo.DataAccess.Concrete.EntityFrameworkCore.Repositories;
 using GeoToDo.DataAccess.Interfaces;
+using GeoToDo.DTO.DTOs.ActivityDto;
+using GeoToDo.DTO.DTOs.AppUserDto;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -24,6 +28,9 @@ namespace GeoToDo.Business.Containers.MicrosoftIoC
             services.AddScoped<IAppRoleDal, EfAppRoleRepository>();
             services.AddScoped<IAppRoleService, AppRoleManager>();
 
+            services.AddScoped<IAppUserRoleDal, EfAppUserRoleRepository>();
+            services.AddScoped<IAppUserRoleService, AppUserRoleManager>();
+            
             services.AddScoped<IAppUserDal, EfAppUserRepository>();
             services.AddScoped<IAppUserService, AppUserManager>();
 
@@ -32,6 +39,11 @@ namespace GeoToDo.Business.Containers.MicrosoftIoC
 
             services.AddScoped<ITargetDal, EfTargetRepository>();
             services.AddScoped<ITargetService, TargetManager>();
+
+            services.AddTransient<IValidator<AppUserLoginDto>, AppUserLoginValidator>();
+            services.AddTransient<IValidator<AppUserAddDto>, AppUserAddValidator>();
+            services.AddTransient<IValidator<AddActivityDto>, AddActivityValidator>();
+            services.AddTransient<IValidator<ActivityListDto>, ActivityListValidator>();
         }
     }
 }

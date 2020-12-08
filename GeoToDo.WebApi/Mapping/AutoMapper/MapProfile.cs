@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using GeoToDo.DTO.DTOs.ActivityDto;
 using GeoToDo.DTO.DTOs.AppUserDto;
 using GeoToDo.Entities.Concrete;
 using System;
@@ -18,6 +19,14 @@ namespace GeoToDo.WebApi.Mapping.AutoMapper
 
             CreateMap<AppUserLoginDto, AppUser>();
             CreateMap<AppUser, AppUserLoginDto>();
+            #endregion
+
+            #region Activity
+            CreateMap<Activity, AddActivityDto>();
+            CreateMap<AddActivityDto, Activity>();
+
+            CreateMap<Activity, ActivityListDto>();
+            CreateMap<ActivityListDto, Activity>();
             #endregion
         }
     }

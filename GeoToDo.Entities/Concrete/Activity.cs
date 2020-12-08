@@ -14,7 +14,7 @@ namespace GeoToDo.Entities.Concrete
         public DateTime SelectedTime { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
-        public bool IsVisible { get; set; }
+        public bool IsVisible { get; set; } = true;
 
 
         public int AppUserId { get; set; }

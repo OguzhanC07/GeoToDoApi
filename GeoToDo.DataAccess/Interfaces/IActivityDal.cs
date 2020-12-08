@@ -9,6 +9,5 @@ namespace GeoToDo.DataAccess.Interfaces
 {
     public interface IActivityDal : IGenericDal<Activity>
     {
-
     }
 }
