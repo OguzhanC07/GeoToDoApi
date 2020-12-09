@@ -15,7 +15,7 @@ namespace GeoToDo.Entities.Concrete
         public string Name { get; set; }
         public string SurName { get; set; }
         public string ImagePath { get; set; }
-        public bool IsDeleted { get; set; }
+        public bool IsVisible { get; set; } = true;
         
         public List<AppUserRole> AppUserRoles { get; set; }
         public List<Target> Targets { get; set; }

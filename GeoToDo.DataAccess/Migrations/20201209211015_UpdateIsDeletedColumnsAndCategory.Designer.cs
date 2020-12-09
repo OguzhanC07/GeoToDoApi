@@ -4,14 +4,16 @@ using GeoToDo.DataAccess.Concrete.EntityFrameworkCore.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GeoToDo.DataAccess.Migrations
 {
     [DbContext(typeof(GeoToDoDbContext))]
-    partial class GeoToDoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201209211015_UpdateIsDeletedColumnsAndCategory")]
+    partial class UpdateIsDeletedColumnsAndCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -15,6 +15,8 @@ namespace GeoToDo.DataAccess.Mapping
         {
             builder.HasKey(I => I.Id);
             builder.Property(I => I.Id).UseIdentityColumn();
+
+            builder.HasIndex(I => new { I.ActivityId, I.CategoryId }).IsUnique();
         }
     }
 }

@@ -9,5 +9,7 @@ namespace GeoToDo.Business.Interfaces
 {
     public interface ICategoryService : IGenericService<Category>
     {
+        new Task<Category> GetByIdAsync(int id);
+        Task<List<Category>> GetCategoryByAppUserId(int appuserId);
     }
 }
