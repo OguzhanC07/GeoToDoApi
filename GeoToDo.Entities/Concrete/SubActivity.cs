@@ -11,10 +11,7 @@ namespace GeoToDo.Entities.Concrete
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public DateTime SelectedTime { get; set; }
-        public double? Latitude { get; set; }
-        public double? Longitude { get; set; }
-        public bool IsVisible { get; set; }
+        public bool IsVisible { get; set; } = true;
 
 
         public int ActivtyId { get; set; }

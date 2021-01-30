@@ -18,7 +18,6 @@ namespace GeoToDo.DataAccess.Mapping
 
             builder.Property(I => I.Name).HasMaxLength(100).IsRequired();
             builder.Property(I => I.Description).HasMaxLength(500);
-            builder.Property(I => I.SelectedTime).IsRequired();
         }
     }
 }

@@ -45,7 +45,7 @@ namespace GeoToDo.WebApi.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin,Member")]
         [ValidModel]
-        public async Task<IActionResult> AddActivity([FromForm]AddActivityDto addActivityDto)
+        public async Task<IActionResult> AddActivity(AddActivityDto addActivityDto)
         {
             await _activityService.AddAsync(_mapper.Map<Activity>(addActivityDto));
             return Created("", addActivityDto);
@@ -55,7 +55,7 @@ namespace GeoToDo.WebApi.Controllers
         [Authorize(Roles = "Admin,Member")]
         [ValidModel]
         [ServiceFilter(typeof(ValidId<Activity>))]
-        public async Task<IActionResult> UpdateActivity(int id, [FromForm] ActivityListDto activityListDto)
+        public async Task<IActionResult> UpdateActivity(int id, ActivityListDto activityListDto)
         {
             if (activityListDto.Id == id)
             {

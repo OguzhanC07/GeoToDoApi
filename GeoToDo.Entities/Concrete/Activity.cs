@@ -15,6 +15,7 @@ namespace GeoToDo.Entities.Concrete
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
         public string PhotoString { get; set; }
+        public bool IsCompleted { get; set; } = false;
         public bool IsVisible { get; set; } = true;
 
 
