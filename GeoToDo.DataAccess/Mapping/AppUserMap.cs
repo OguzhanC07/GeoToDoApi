@@ -23,7 +23,7 @@ namespace GeoToDo.DataAccess.Mapping
             builder.Property(I => I.Email).HasMaxLength(100).IsRequired();
 
             builder.Property(I => I.Name).HasMaxLength(50).IsRequired();
-            builder.Property(I => I.SurName).HasMaxLength(50).IsRequired();
+            builder.Property(I => I.Surname).HasMaxLength(50).IsRequired();
 
             builder.HasMany(I => I.AppUserRoles).WithOne(I => I.AppUser).HasForeignKey(I => I.AppUserId);
 

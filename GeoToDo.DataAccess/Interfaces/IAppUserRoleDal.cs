@@ -9,6 +9,5 @@ namespace GeoToDo.DataAccess.Interfaces
 {
     public interface IAppUserRoleDal : IGenericDal<AppUserRole>
     {
-
     }
 }

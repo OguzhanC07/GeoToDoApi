@@ -10,7 +10,7 @@ namespace GeoToDo.DTO.DTOs.AppUserDto
         public string Password { get; set; }
         public string Email { get; set; }
         public string Name { get; set; }
-        public string SurName { get; set; }
+        public string Surname { get; set; }
         public string ImagePath { get; set; }
     }
 }

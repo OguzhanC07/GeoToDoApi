@@ -1,5 +1,4 @@
-﻿using GeoToDo.DTO.DTOs.AppUserDto;
-using GeoToDo.Entities.Concrete;
+﻿using GeoToDo.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +9,7 @@ namespace GeoToDo.Business.Interfaces
 {
     public interface IAppUserService : IGenericService<AppUser>
     {
-        Task<AppUser> CheckUserAsync(AppUserLoginDto appUserLoginDto);
-        Task<AppUser> FindUserAsync(string value);
-        Task<List<AppRole>> GetRolesByEmailOrUserNameAsync(string value);
+        Task<AppUser> FindByEmail(string email);
+        Task<List<AppRole>> GetRolesByEmail(string email);
     }
 }

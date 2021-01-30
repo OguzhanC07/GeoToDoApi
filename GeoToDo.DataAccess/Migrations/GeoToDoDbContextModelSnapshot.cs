@@ -47,6 +47,9 @@ namespace GeoToDo.DataAccess.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("PhotoString")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("SelectedTime")
                         .HasColumnType("datetime2");
 
@@ -55,29 +58,6 @@ namespace GeoToDo.DataAccess.Migrations
                     b.HasIndex("AppUserId");
 
                     b.ToTable("Activities");
-                });
-
-            modelBuilder.Entity("GeoToDo.Entities.Concrete.ActivityImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("ActivityId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsVisible")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ActivityId");
-
-                    b.ToTable("ActivityImages");
                 });
 
             modelBuilder.Entity("GeoToDo.Entities.Concrete.AppRole", b =>
@@ -125,7 +105,7 @@ namespace GeoToDo.DataAccess.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("SurName")
+                    b.Property<string>("Surname")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
@@ -293,17 +273,6 @@ namespace GeoToDo.DataAccess.Migrations
                     b.Navigation("AppUser");
                 });
 
-            modelBuilder.Entity("GeoToDo.Entities.Concrete.ActivityImage", b =>
-                {
-                    b.HasOne("GeoToDo.Entities.Concrete.Activity", "Activity")
-                        .WithMany("ActivityImages")
-                        .HasForeignKey("ActivityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Activity");
-                });
-
             modelBuilder.Entity("GeoToDo.Entities.Concrete.AppUserRole", b =>
                 {
                     b.HasOne("GeoToDo.Entities.Concrete.AppRole", "AppRole")
@@ -377,8 +346,6 @@ namespace GeoToDo.DataAccess.Migrations
 
             modelBuilder.Entity("GeoToDo.Entities.Concrete.Activity", b =>
                 {
-                    b.Navigation("ActivityImages");
-
                     b.Navigation("CategoryActivities");
 
                     b.Navigation("SubActivities");

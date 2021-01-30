@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeoToDo.DataAccess.Migrations
 {
     [DbContext(typeof(GeoToDoDbContext))]
-    [Migration("20201206132923_InitialCreate")]
+    [Migration("20210129200843_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,10 +35,6 @@ namespace GeoToDo.DataAccess.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<string>("ImagePaths")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
                     b.Property<bool>("IsVisible")
                         .HasColumnType("bit");
 
@@ -52,6 +48,9 @@ namespace GeoToDo.DataAccess.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("PhotoString")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("SelectedTime")
                         .HasColumnType("datetime2");
@@ -95,7 +94,7 @@ namespace GeoToDo.DataAccess.Migrations
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDeleted")
+                    b.Property<bool>("IsVisible")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
@@ -108,7 +107,7 @@ namespace GeoToDo.DataAccess.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("SurName")
+                    b.Property<string>("Surname")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
@@ -162,7 +161,7 @@ namespace GeoToDo.DataAccess.Migrations
                     b.Property<int>("AppUserId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsDeleted")
+                    b.Property<bool>("IsVisible")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
@@ -194,9 +193,10 @@ namespace GeoToDo.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ActivityId");
-
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("ActivityId", "CategoryId")
+                        .IsUnique();
 
                     b.ToTable("CategoryActivities");
                 });
@@ -212,10 +212,6 @@ namespace GeoToDo.DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("ImagePaths")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 

@@ -40,6 +40,8 @@ namespace GeoToDo.Business.Containers.MicrosoftIoC
             services.AddScoped<ITargetDal, EfTargetRepository>();
             services.AddScoped<ITargetService, TargetManager>();
 
+            services.AddScoped<IJwtService, JwtManager>();
+
             services.AddTransient<IValidator<AppUserLoginDto>, AppUserLoginValidator>();
             services.AddTransient<IValidator<AppUserAddDto>, AppUserAddValidator>();
             services.AddTransient<IValidator<AddActivityDto>, AddActivityValidator>();

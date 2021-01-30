@@ -12,7 +12,7 @@ namespace GeoToDo.Business.ValidationRules.FluentValidation
     {
         public AppUserLoginValidator()
         {
-            RuleFor(I => I.EmailOrUserName).NotEmpty().WithMessage("Email or password can't be blank");
+            RuleFor(I => I.Email).NotEmpty().WithMessage("Email or password can't be blank");
             RuleFor(I => I.Password).NotEmpty().WithMessage("Password can't be blank");
         }
     }
