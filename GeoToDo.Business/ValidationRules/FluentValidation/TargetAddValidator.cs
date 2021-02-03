@@ -13,7 +13,6 @@ namespace GeoToDo.Business.ValidationRules.FluentValidation
         public TargetAddValidator()
         {
             RuleFor(I => I.Name).NotEmpty().WithMessage("Name place can't be blank");
-            RuleFor(I => I.SavedTime).NotEmpty().WithMessage("Time place can't be blank");
         }
     }
 }

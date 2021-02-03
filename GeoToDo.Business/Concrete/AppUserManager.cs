@@ -21,7 +21,7 @@ namespace GeoToDo.Business.Concrete
 
         public async Task<AppUser> FindByEmail(string email)
         {
-           return await _genericDal.GetByFilter(I => I.Email == email);
+           return await _genericDal.GetByFilter(I => I.Email == email && I.IsVisible==true);
         }
 
         public async Task<List<AppRole>> GetRolesByEmail(string email)

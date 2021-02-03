@@ -9,6 +9,6 @@ namespace GeoToDo.DTO.DTOs.TargetDto
     public class TargetAddDto
     {
         public string Name { get; set; }
-        public DateTime SavedTime { get; set; }
+        public int AppUserId { get; set; }
     }
 }

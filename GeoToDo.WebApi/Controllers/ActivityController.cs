@@ -28,7 +28,6 @@ namespace GeoToDo.WebApi.Controllers
 
         [HttpGet("{id}")]
         [Authorize(Roles = "Admin,Member")]
-        [ServiceFilter(typeof(ValidId<AppUser>))]
         public async Task<IActionResult> GetActivityByAppUserId(int id)
         {
             return Ok(_mapper.Map<List<ActivityListDto>>(await _activityService.GetActivitiesByAppUserIdAsync(id)));
@@ -36,7 +35,6 @@ namespace GeoToDo.WebApi.Controllers
 
         [HttpGet("[action]/{id}")]
         [Authorize(Roles = "Admin,Member")]
-        [ServiceFilter(typeof(ValidId<Activity>))]
         public async Task<IActionResult> GetActivityById(int id)
         {
             return Ok(_mapper.Map<ActivityListDto>(await _activityService.GetByIdAsync(id)));
@@ -71,7 +69,6 @@ namespace GeoToDo.WebApi.Controllers
 
         [HttpDelete("{id}")]
         [Authorize(Roles ="Admin,Member")]
-        [ServiceFilter(typeof(ValidId<Activity>))]
         public async Task<IActionResult> DeleteActivity(int id)
         {
             var activity = await _activityService.GetByIdAsync(id);
@@ -80,6 +77,18 @@ namespace GeoToDo.WebApi.Controllers
             return NoContent();
         }
 
+
+        [HttpPut("[action]/{id}")]
+        [Authorize(Roles ="Admin,Member")]
+        public async Task<IActionResult> CompleteActivity(int id)
+        {
+            var activity = await _activityService.GetByIdAsync(id);
+            activity.IsCompleted = true;
+            await _activityService.UpdateAsync(activity);
+            return NoContent();
+        }
+
+        
 
     }
 }

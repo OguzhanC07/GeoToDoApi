@@ -12,5 +12,6 @@ namespace GeoToDo.DTO.DTOs.ActivityDto
         public DateTime SelectedTime { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
+        public bool IsCompleted { get; set; }
     }
 }

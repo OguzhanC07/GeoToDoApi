@@ -21,6 +21,12 @@ namespace GeoToDo.WebApi.Mapping.AutoMapper
 
             CreateMap<AppUserLoginDto, AppUser>();
             CreateMap<AppUser, AppUserLoginDto>();
+
+            CreateMap<AppUserDto, AppUser>();
+            CreateMap<AppUser, AppUserDto>();
+
+            CreateMap<AppUserEditDto, AppUser>();
+            CreateMap<AppUser, AppUserEditDto>();
             #endregion
 
             #region Activity

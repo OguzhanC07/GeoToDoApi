@@ -11,6 +11,8 @@ namespace GeoToDo.Entities.Concrete
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime SavedTime { get; set; } = DateTime.Now;
+        public DateTime AchievedTime { get; set; }
+        public bool isAchieved { get; set; } = false;
 
         public int AppUserId { get; set; }
         public AppUser AppUser { get; set; }

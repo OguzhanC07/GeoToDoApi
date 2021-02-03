@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeoToDo.DTO.DTOs.TargetDto
+namespace GeoToDo.DTO.DTOs.AppUserDto
 {
-    public class TargetListDto
+    public class AppUserEditDto
     {
         public int Id { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
         public string Name { get; set; }
-        public DateTime SavedTime { get; set; }
-        public DateTime AchievedTime { get; set; }
-        public bool isAchieved { get; set; }
-
+        public string Surname { get; set; }
     }
 }

@@ -25,9 +25,8 @@ namespace GeoToDo.WebApi.Controllers
             _targetService = targetService;
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         [Authorize(Roles = "Admin,Member")]
-        [ServiceFilter(typeof(ValidId<AppUser>))]
         public async Task<IActionResult> GetAllByAppUserId(int id)
         {
             return Ok(_mapper.Map<List<TargetListDto>>(await _targetService.GetTargetsByAppUserId(id)));
@@ -35,7 +34,6 @@ namespace GeoToDo.WebApi.Controllers
 
         [HttpGet("[action]/id")]
         [Authorize(Roles = "Admin,Member")]
-        [ServiceFilter(typeof(ValidId<Target>))]
         public async Task<IActionResult> GetById(int id)
         {
             return Ok(_mapper.Map<TargetListDto>(await _targetService.GetByIdAsync(id)));
@@ -44,7 +42,7 @@ namespace GeoToDo.WebApi.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin,Member")]
         [ValidModel]
-        public async Task<IActionResult> AddTarget([FromForm] TargetAddDto targetAddDto)
+        public async Task<IActionResult> AddTarget(TargetAddDto targetAddDto)
         {
             await _targetService.AddAsync(_mapper.Map<Target>(targetAddDto));
             return Created("", targetAddDto);
@@ -52,7 +50,6 @@ namespace GeoToDo.WebApi.Controllers
 
         [HttpPut("{id}")]
         [Authorize(Roles = "Admin,Member")]
-        [ServiceFilter(typeof(ValidId<Target>))]
         [ValidModel]
         public async Task<IActionResult> UpdateTarget(int id, [FromForm] TargetListDto targetListDto)
         {
@@ -70,9 +67,21 @@ namespace GeoToDo.WebApi.Controllers
             }
         }
 
+        [HttpPut("[action]/{id}")]
+        [Authorize(Roles ="Admin,Member")]
+        public async Task<IActionResult> CompleteTarget(int id)
+        {
+            var target = await _targetService.GetByIdAsync(id);
+            target.isAchieved = true;
+            target.AchievedTime = DateTime.Now;
+            await _targetService.UpdateAsync(target);
+
+            return NoContent();
+        }
+
+
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin,Member")]
-        [ServiceFilter(typeof(ValidId<Target>))]
         public async Task<IActionResult> DeleteTarget(int id)
         {
             await _targetService.RemoveAsync(await _targetService.GetByIdAsync(id));

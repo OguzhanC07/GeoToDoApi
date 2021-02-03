@@ -25,7 +25,7 @@ namespace GeoToDo.Business.Concrete
         }
         public async Task<List<Activity>> GetActivitiesByAppUserIdAsync(int appuserid)
         {
-            return await _genericDal.GetAllByFilter(I => I.AppUserId == appuserid && I.IsVisible == true);
+            return await _genericDal.GetAllByFilter(I => I.AppUserId == appuserid && I.IsVisible == true && I.SelectedTime>= DateTime.Today && I.SelectedTime<=DateTime.Today.AddDays(1));
         }
 
         public async Task AddToCategory(CategoryActivityDto categoryActivityDto)

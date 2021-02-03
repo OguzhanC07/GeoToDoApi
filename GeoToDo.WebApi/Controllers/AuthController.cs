@@ -50,6 +50,8 @@ namespace GeoToDo.WebApi.Controllers
         [ValidModel]
         public async Task<IActionResult> SignUp(AppUserAddDto appUserAddDto, [FromServices] IAppUserRoleService appUserRoleService, [FromServices] IAppRoleService appRoleService)
         {
+            appUserAddDto.Email=appUserAddDto.Email.ToLower();
+            appUserAddDto.UserName = appUserAddDto.UserName.ToLower();
             var appUser = await _appUserService.FindByEmail(appUserAddDto.Email);
 
             if (appUser != null)
